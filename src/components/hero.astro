@@ -2,74 +2,75 @@
 import { Picture } from "astro:assets";
 import heroImage from "assets/cobalagi.png";
 import Link from "@components/ui/link.astro";
-import { Icon } from "astro-icon/components";
 ---
 
-<main class="bg-textJudul pmb-5 text-white">   
- <div class="grid lg:grid-cols-2 place-items-center pt-16 pb-8 md:pt-6 md:pb-24 max-w-screen-xl mx-auto px-5">     
-   {/* Tambahkan kontainer untuk gambar dengan tampilan berbeda di mobile dan desktop */}
-   <div class="w-full md:order-1">
-     {/* Gambar akan tersembunyi di mobile dan ditampilkan di desktop */}
-     <Picture
-       src={heroImage}
-       alt="orang"
-       widths={[800, 1200, 1600, 2000]}
-       sizes="(max-width: 2000px) 100vw, 2000px"
-       loading="eager"
-       format="avif"
-       class="hidden md:block w-full h-auto object-cover scale-70"
-     />
-     
-     {/* Gambar akan ditampilkan di mobile dan tersembunyi di desktop */}
-     <Picture
-       src={heroImage}
-       alt="orang"
-       widths={[400, 600, 800]}
-       sizes="(max-width: 1000px) 100vw, 1000px"
-       loading="eager"
-       format="avif"
-       class="md:hidden w-full h-auto object-cover mb-6 scale-105"
-     />
-   </div>
+<main class="bg-textJudul mb-5 text-white">
+  <div
+    class="grid lg:grid-cols-2 place-items-center pt-16 pb-8 md:pt-6 md:pb-24 max-w-screen-xl mx-auto px-5">
+    {
+      /* Tambahkan kontainer untuk gambar dengan tampilan berbeda di mobile dan desktop */
+    }
+    <div class="w-full md:order-1">
+      {/* Gambar akan tersembunyi di mobile dan ditampilkan di desktop */}
+      <Picture
+        src={heroImage}
+        alt="orang"
+        widths={[800, 1200, 1600]}
+        sizes="(max-width: 2000px) 100vw, 2000px"
+        loading="eager"
+        format="avif"
+        class="hidden md:block lg:block w-full h-auto object-cover md:scale-90"
+      />
+      {/* Gambar akan ditampilkan di mobile dan tersembunyi di desktop */}
+      <Picture
+        src={heroImage}
+        alt="orang"
+        widths={[200, 300, 400]}
+        sizes="(max-width: 600px) 100vw, 600px"
+        loading="eager"
+        format="avif"
+        class="block md:hidden lg:hidden w-full h-auto object-cover mb-6 scale-90"
+      />
+    </div>
 
-   <div>
-     <h1 class="text-4xl lg:text-5xl xl:text-6xl font-bold lg:tracking-tight xl:tracking-tighter">
-       WELCOME TO
-     </h1>
-     <div>
-       <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-4xl font-bold tracking-wide mt-4">
-         PT. JARING DATA NUSANTARA
-       </h1>
-     </div>
-     <p class="text-lg mt-4 max-w-xl">
-       "Connected Business, Smart Solution. CLEON by JDN - Your Digital Partner."
-     </p>
-     <div class="mt-6 flex flex-col sm:flex-row gap-3">
-       <Link
-         style="muted"
-         href="/contact"
-         target="_self"
-         class="flex gap-1 text-textJudul items-center justify-center"
-         rel="noopener"
-       >
-         <svg
-           class="w-6 h-6"
-           fill="FFFFFF"
-           viewBox="0 0 20 20"
-           xmlns="http://www.w3.org/2000/svg"
-         >
-           <path
-             d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"
-             fill="#3D5A80"
-           ></path>
-           <path
-             d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"
-             fill="#3D5A80"
-           ></path>
-         </svg>
-         Work Inquiry from JDN
-       </Link>
-     </div>
-   </div>
- </div>
+    <div class="text-center md:text-left">
+      <h1
+        class="text-4xl lg:text-5xl xl:text-6xl font-bold lg:tracking-tight xl:tracking-tighter">
+        WELCOME TO
+      </h1>
+      <div>
+        <h1
+          class="text-3xl sm:text-4xl md:text-5xl lg:text-4xl font-bold tracking-wide mt-4">
+          PT. JARING DATA NUSANTARA
+        </h1>
+      </div>
+      <p class="text-lg mt-4 max-w-xl mx-auto md:mx-0">
+        "Connected Business, Smart Solution. CLEON by JDN - Your Digital
+        Partner."
+      </p>
+      <div
+        class="mt-6 flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
+        <Link
+          style="muted"
+          href="/contact"
+          target="_self"
+          class="flex gap-1 text-textJudul items-center justify-center"
+          rel="noopener">
+          <svg
+            class="w-6 h-6"
+            fill="FFFFFF"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"
+              fill="#3D5A80"></path>
+            <path
+              d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"
+              fill="#3D5A80"></path>
+          </svg>
+          Work Inquiry from JDN
+        </Link>
+      </div>
+    </div>
+  </div>
 </main>

@@ -3,43 +3,12 @@
 import { Icon } from "astro-icon/components";
 ---
 
-<div class="bg-textJudul text-white py-6 overflow-hidden">
-  <div class="mt-24 max-w-screen-xl mx-auto py-2">
-    <h2 class=" text-2xl lg:text-3xl text-center font-bold lg:tracking-tight">
-      Partnership
-    </h2>
-    <div class="relative w-full">
-      <div 
-        class="partnership-slider flex gap-8 md:gap-20 items-center justify-center mt-10"
-        style="animation: slide 15s linear infinite;">
-        <Icon class="size-8 md:size-12 flex-shrink-0" name="simple-icons:react" />
-        <Icon class="size-8 md:size-12 flex-shrink-0" name="simple-icons:svelte" />
-        <Icon class="size-8 md:size-12 flex-shrink-0" name="simple-icons:astro" />
-        <Icon class="size-8 md:size-16 flex-shrink-0" name="simple-icons:tailwindcss" />
-        <Icon class="size-8 md:size-16 flex-shrink-0" name="simple-icons:linux" />
-        <Icon class="size-8 md:size-12 flex-shrink-0" name="simple-icons:vercel" />
-        <Icon class="size-8 md:size-12 flex-shrink-0" name="simple-icons:github" />
-        <Icon class="size-8 md:size-12 flex-shrink-0" name="simple-icons:laragon" />
-        <Icon class="size-8 md:size-12 flex-shrink-0" name="simple-icons:postgresql" />
-        <Icon class="size-8 md:size-12 flex-shrink-0" name="simple-icons:gitlab" />
-        
-        {/* Duplicate the icons for a seamless infinite scroll */}
-        <Icon class="size-8 md:size-12 flex-shrink-0" name="simple-icons:react" />
-        <Icon class="size-8 md:size-12 flex-shrink-0" name="simple-icons:svelte" />
-        <Icon class="size-8 md:size-12 flex-shrink-0" name="simple-icons:astro" />
-        <Icon class="size-8 md:size-16 flex-shrink-0" name="simple-icons:tailwindcss" />
-        <Icon class="size-8 md:size-16 flex-shrink-0" name="simple-icons:linux" />
-        <Icon class="size-8 md:size-12 flex-shrink-0" name="simple-icons:vercel" />
-        <Icon class="size-8 md:size-12 flex-shrink-0" name="simple-icons:github" />
-        <Icon class="size-8 md:size-12 flex-shrink-0" name="simple-icons:laragon" />
-        <Icon class="size-8 md:size-12 flex-shrink-0" name="simple-icons:postgresql" />
-        <Icon class="size-8 md:size-12 flex-shrink-0" name="simple-icons:gitlab" />
-      </div>
-    </div>
-  </div>
-</div>
-
 <style>
+  .partnership-slider {
+    display: flex;
+    animation: slide 20s linear infinite;
+  }
+
   @keyframes slide {
     0% {
       transform: translateX(0);
@@ -48,31 +17,107 @@ import { Icon } from "astro-icon/components";
       transform: translateX(-50%);
     }
   }
-
-  .partnership-slider {
-    display: inline-flex;
-    width: max-content;
-  }
-
-  .partnership-slider:hover {
-    animation-play-state: paused;
-  }
 </style>
 
-<!-- 
-<div class="bg-textJudul text-white">
-  <div class="mt-24 max-w-screen-xl mx-auto py-12">
-    <h2 class="text-2xl lg:text-3xl text-center font-bold lg:tracking-tight">
+<div class="bg-textJudul text-white py-6 overflow-hidden">
+  <div class="mt-0 max-w-screen-xl mx-auto py-2">
+    <h2
+      class="text-2xl lg:text-3xl text-center font-bold lg:tracking-tight pb-7">
       Partnership
     </h2>
-    <div
-      class="flex gap-8 md:gap-20 items-center justify-center mt-10 flex-wrap">
-      <img src="../assets/logo.png" alt="React Logo" class="w-16 md:w-24" />
-      <img src="../assets/logo.png" alt="Svelte Logo" class="w-16 md:w-24" />
-      <img src="../assets/logo.png" alt="Astro Logo" class="w-16 md:w-24" />
-      <img src="../assets/logo.png" alt="Tailwind CSS Logo" class="w-16 md:w-24" />
-      <img src="../assets/logo.png" alt="Alpine.js Logo" class="w-16 md:w-24" />
-      <img src="../assets/g1.png" alt="Vercel Logo" class="w-16 md:w-24" />
+    <div class="relative w-full">
+      <div class="partnership-slider-wrapper overflow-hidden">
+        <div class="partnership-slider flex items-center justify-start">
+          <!-- Icon List -->
+          <div class="flex gap-8 md:gap-20">
+            <Icon
+              class="size-8 md:size-12 flex-shrink-0"
+              name="simple-icons:linux"
+            />
+            <Icon
+              class="size-8 md:size-12 flex-shrink-0"
+              name="simple-icons:react"
+            />
+            <Icon
+              class="size-8 md:size-12 flex-shrink-0"
+              name="simple-icons:svelte"
+            />
+            <Icon
+              class="size-8 md:size-12 flex-shrink-0"
+              name="simple-icons:astro"
+            />
+            <Icon
+              class="size-8 md:size-16 flex-shrink-0"
+              name="simple-icons:tailwindcss"
+            />
+            <Icon
+              class="size-8 md:size-12 flex-shrink-0"
+              name="simple-icons:vercel"
+            />
+            <Icon
+              class="size-8 md:size-12 flex-shrink-0"
+              name="simple-icons:github"
+            />
+            <Icon
+              class="size-8 md:size-12 flex-shrink-0"
+              name="simple-icons:laragon"
+            />
+            <Icon
+              class="size-8 md:size-12 flex-shrink-0"
+              name="simple-icons:postgresql"
+            />
+            <Icon
+              class="size-8 md:size-12 flex-shrink-0"
+              name="simple-icons:gitlab"
+            />
+            <!-- Duplicate the icons for seamless looping -->
+            <Icon
+              class="size-8 md:size-12 flex-shrink-0"
+              name="simple-icons:linux"
+            />
+            <Icon
+              class="size-8 md:size-12 flex-shrink-0"
+              name="simple-icons:react"
+            />
+            <Icon
+              class="size-8 md:size-12 flex-shrink-0"
+              name="simple-icons:svelte"
+            />
+            <Icon
+              class="size-8 md:size-12 flex-shrink-0"
+              name="simple-icons:astro"
+            />
+            <Icon
+              class="size-8 md:size-12 flex-shrink-0"
+              name="simple-icons:github"
+            />
+            <Icon
+              class="size-8 md:size-12 flex-shrink-0"
+              name="simple-icons:vercel"
+            />
+            <Icon
+              class="size-8 md:size-12 flex-shrink-0"
+              name="simple-icons:github"
+            />
+            <Icon
+              class="size-8 md:size-12 flex-shrink-0"
+              name="simple-icons:laragon"
+            />
+            <Icon
+              class="size-8 md:size-12 flex-shrink-0"
+              name="simple-icons:postgresql"
+            />
+            <Icon
+              class="size-8 md:size-12 flex-shrink-0"
+              name="simple-icons:gitlab"
+            />
+            <Icon
+              class="size-8 md:size-12 flex-shrink-0"
+              name="simple-icons:github"
+            />
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div> -->
+</div>
