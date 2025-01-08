@@ -4,32 +4,27 @@ import heroImage from "assets/cobalagi.png";
 import Link from "@components/ui/link.astro";
 ---
 
-<main class="bg-textJudul mb-5 text-white">
+<main class="bg-textJudul text-white">
   <div
-    class="grid lg:grid-cols-2 place-items-center pt-16 pb-8 md:pt-6 md:pb-24 max-w-screen-xl mx-auto px-5">
-    {
-      /* Tambahkan kontainer untuk gambar dengan tampilan berbeda di mobile dan desktop */
-    }
+    class="grid lg:grid-cols-2 place-items-center pt-8 pb-4 md:pt-4 md:pb-12 max-w-6xl mx-auto px-3">
     <div class="w-full md:order-1">
-      {/* Gambar akan tersembunyi di mobile dan ditampilkan di desktop */}
       <Picture
         src={heroImage}
         alt="orang"
-        widths={[800, 1200, 1600]}
+        widths={[1000, 1400, 1800]}
         sizes="(max-width: 2000px) 100vw, 2000px"
         loading="eager"
         format="avif"
-        class="hidden md:block lg:block w-full h-auto object-cover md:scale-90"
+        class="hidden md:block lg:block w-full h-auto object-cover md:scale-95"
       />
-      {/* Gambar akan ditampilkan di mobile dan tersembunyi di desktop */}
       <Picture
         src={heroImage}
         alt="orang"
-        widths={[200, 300, 400]}
+        widths={[300, 400, 500]}
         sizes="(max-width: 600px) 100vw, 600px"
         loading="eager"
         format="avif"
-        class="block md:hidden lg:hidden w-full h-auto object-cover mb-6 scale-90"
+        class="block md:hidden lg:hidden w-full h-auto object-cover mb-6 scale-95"
       />
     </div>
 

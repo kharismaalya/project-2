@@ -1,0 +1,241 @@
+---
+import { Picture } from "astro:assets";
+
+const testimonials = [
+  {
+    name: "Josephine",
+    content:
+      "Lorem ipsum is simply dummy the industrystandard text ever since dummy text of the printing.",
+    image: "/../src/assets/cobalagi.png",
+    size: "medium",
+  },
+  {
+    name: "saya",
+    content:
+      "Lorem ipsum is simply dummy the industrystandard text ever since dummy text of the printing and type setting industry.",
+    image: "/../src/assets/hero-alt.png",
+    size: "medium",
+  },
+  {
+    name: "kamu",
+    content:
+      "Lorem ipsum is simply dummy the industrystandard text ever since dummy text of the printing.",
+    image: "/../src/assets/cobalagi.png",
+    size: "medium",
+  },
+  {
+    name: "kita",
+    content:
+      "Lorem ipsum is simply dummy the industrystandard text ever since dummy text of the printing.",
+    image: "/../src/assets/cobalagi.png",
+    size: "medium",
+  },
+  {
+    name: "bersama",
+    content:
+      "Lorem ipsum is simply dummy the industrystandard text ever since dummy text of the printing.",
+    image: "/../src/assets/cobalagi.png",
+    size: "medium",
+  },
+];
+---
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
+  <h2 class="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12">
+    Testimonials
+  </h2>
+
+  <div class="relative">
+    <!-- Navigation Buttons -->
+    <button
+      class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 sm:-translate-x-4 lg:-translate-x-6 z-10 bg-white rounded-full p-1.5 sm:p-2 shadow-md hover:shadow-lg transition-all"
+      id="prevButton"
+      aria-label="Previous slide">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M15 19l-7-7 7-7"></path>
+      </svg>
+    </button>
+
+    <button
+      class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 sm:translate-x-4 lg:translate-x-6 z-10 bg-white rounded-full p-1.5 sm:p-2 shadow-md hover:shadow-lg transition-all"
+      id="nextButton"
+      aria-label="Next slide">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M9 5l7 7-7 7"></path>
+      </svg>
+    </button>
+
+    <!-- Testimonials Slider -->
+    <div class="overflow-hidden" id="testimonialWrapper">
+      <div
+        class="flex transition-transform duration-300 ease-in-out"
+        id="testimonialSlider">
+        {
+          testimonials.map((item) => (
+            <div class="w-full flex-shrink-0 px-2 sm:px-4">
+              <div class="bg-textJudul p-4 sm:p-6 lg:p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 max-w-2xl mx-auto">
+                <div class="flex flex-col items-center text-center">
+                  <div class="w-16 h-16 sm:w-20 sm:h-20 mb-3 sm:mb-4 rounded-full overflow-hidden">
+                    <Picture
+                      src={item.image}
+                      alt={item.name}
+                      width={80}
+                      height={80}
+                      format="webp"
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+
+                  <div class="relative mb-4 sm:mb-6">
+                    <span class="text-4xl sm:text-5xl lg:text-6xl font-serif text-textJudul absolute -top-4 sm:-top-6 -left-2 sm:-left-4">
+                      "
+                    </span>
+                    <p class="text-sm sm:text-base lg:text-lg text-white leading-relaxed pl-2 sm:pl-4 relative z-10">
+                      {item.content}
+                    </p>
+                    <span class="text-4xl sm:text-5xl lg:text-6xl font-serif text-textJudul absolute -bottom-6 sm:-bottom-8 -right-2 sm:-right-4 rotate-180">
+                      "
+                    </span>
+                  </div>
+
+                  <h3 class="font-semibold text-lg sm:text-xl">{item.name}</h3>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const slider = document.getElementById("testimonialSlider");
+  const prevButton = document.getElementById("prevButton");
+  const nextButton = document.getElementById("nextButton");
+  let currentIndex = 0;
+
+  function updateSlide() {
+    if (slider) {
+      slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+      // Update button states
+      if (prevButton && nextButton) {
+        prevButton.style.opacity = currentIndex === 0 ? "0.5" : "1";
+        nextButton.style.opacity =
+          currentIndex === slider.children.length - 1 ? "0.5" : "1";
+      }
+    }
+  }
+
+  prevButton?.addEventListener("click", () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateSlide();
+    }
+  });
+
+  nextButton?.addEventListener("click", () => {
+    if (slider && currentIndex < slider.children.length - 1) {
+      currentIndex++;
+      updateSlide();
+    }
+  });
+
+  // Handle touch events for mobile swipe
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  slider?.addEventListener("touchstart", (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+
+  slider?.addEventListener("touchend", (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  });
+
+  function handleSwipe() {
+    const swipeThreshold = 50;
+    const diff = touchStartX - touchEndX;
+
+    if (Math.abs(diff) > swipeThreshold) {
+      if (diff > 0 && currentIndex < (slider?.children.length || 0) - 1) {
+        // Swipe left
+        currentIndex++;
+        updateSlide();
+      } else if (diff < 0 && currentIndex > 0) {
+        // Swipe right
+        currentIndex--;
+        updateSlide();
+      }
+    }
+  }
+
+  // Handle window resize
+  let resizeTimer;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      updateSlide();
+    }, 250);
+  });
+
+  // Initial update
+  updateSlide();
+</script>
+
+<style>
+  .bg-white {
+    background-color: #ffffff;
+  }
+
+  /* Hide scrollbar for slider */
+  #testimonialWrapper {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  #testimonialWrapper::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Smooth transitions */
+  #testimonialSlider {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  /* Prevent text selection during swipe */
+  #testimonialSlider {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .transition-transform,
+    .transition-all {
+      transition: none !important;
+    }
+  }
+</style>
