@@ -9,6 +9,10 @@ import { Icon } from "astro-icon/components";
     animation: slide 20s linear infinite;
   }
 
+  .partnership-slider.paused {
+    animation-play-state: paused;
+  }
+
   @keyframes slide {
     0% {
       transform: translateX(0);
@@ -121,3 +125,59 @@ import { Icon } from "astro-icon/components";
     </div>
   </div>
 </div>
+<script>
+  import { onMount } from "solid-js";
+
+  onMount(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate");
+          } else {
+            entry.target.classList.remove("animate");
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    document.querySelectorAll(".partnership-slider").forEach((element) => {
+      observer.observe(element);
+    });
+
+    document
+      .querySelectorAll(
+        ".partnership-slider .size-8, .partnership-slider .size-12, .partnership-slider .size-16"
+      )
+      .forEach((icon) => {
+        icon.addEventListener("mouseenter", () => {
+          const slider = document.querySelector(".partnership-slider");
+          if (slider) {
+            slider.classList.add("paused");
+          }
+        });
+        icon.addEventListener("mouseleave", () => {
+          const slider = document.querySelector(".partnership-slider");
+          if (slider) {
+            slider.classList.remove("paused");
+          }
+        });
+      });
+  });
+</script>
+
+<style>
+  .partnership-slider {
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 0.5s ease-out,
+      transform 0.5s ease-out;
+  }
+
+  .partnership-slider.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>

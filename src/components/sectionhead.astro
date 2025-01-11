@@ -1,12 +1,30 @@
 ---
 const { align = "center" } = Astro.props;
+import { Image } from "astro:assets";
+import Head from "assets/head3.png";
 ---
 
-<div class:list={["mt-16", align === "center" && "text-center"]}>
-  <h1 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
-    <slot name="title">Title</slot>
-  </h1>
-  <p class="text-lg mt-4 text-slate-600">
-    <slot name="desc">Some description goes here</slot>
-  </p>
+<div
+  class="relative flex items-center justify-center text-white"
+  style="height: 250px;">
+  {/* Background Image */}
+  <Image
+    src={Head}
+    alt="Header background"
+    class="absolute inset-0 w-full h-full object-cover"
+    loading="eager"
+  />
+
+  {/* Overlay for better text readability */}
+  <div class="absolute inset-0 bg-textJudul/60"></div>
+
+  {/* Content */}
+  <div class:list={["relative z-10", align === "center" && "text-center"]}>
+    <h1 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
+      <slot name="title">Title</slot>
+    </h1>
+    <p class="text-lg mt-4 text-white">
+      <slot name="desc">Some description goes here</slot>
+    </p>
+  </div>
 </div>

@@ -48,12 +48,12 @@ const testimonials = [
   <div class="relative">
     <!-- Navigation Buttons -->
     <button
-      class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 sm:-translate-x-4 lg:-translate-x-6 z-10 bg-white rounded-full p-1.5 sm:p-2 shadow-md hover:shadow-lg transition-all"
+      class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 sm:-translate-x-4 lg:-translate-x-6 z-10 bg-textJudul rounded-full p-1.5 sm:p-2 shadow-md hover:shadow-lg transition-all transform hover:scale-110 active:scale-95"
       id="prevButton"
       aria-label="Previous slide">
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        class="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6"
+        class="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-white"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor">
@@ -66,12 +66,12 @@ const testimonials = [
     </button>
 
     <button
-      class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 sm:translate-x-4 lg:translate-x-6 z-10 bg-white rounded-full p-1.5 sm:p-2 shadow-md hover:shadow-lg transition-all"
+      class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 sm:translate-x-4 lg:translate-x-6 z-10 bg-textJudul rounded-full p-1.5 sm:p-2 shadow-md hover:shadow-lg transition-all transform hover:scale-110 active:scale-95"
       id="nextButton"
       aria-label="Next slide">
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        class="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6"
+        class="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-white"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor">
@@ -90,7 +90,7 @@ const testimonials = [
         id="testimonialSlider">
         {
           testimonials.map((item) => (
-            <div class="w-full flex-shrink-0 px-2 sm:px-4">
+            <div class="w-full flex-shrink-0 px-2 sm:px-4 testimonial-item opacity-0 transform translate-y-10">
               <div class="bg-textJudul p-4 sm:p-6 lg:p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 max-w-2xl mx-auto">
                 <div class="flex flex-col items-center text-center">
                   <div class="w-16 h-16 sm:w-20 sm:h-20 mb-3 sm:mb-4 rounded-full overflow-hidden">
@@ -116,7 +116,9 @@ const testimonials = [
                     </span>
                   </div>
 
-                  <h3 class="font-semibold text-lg sm:text-xl">{item.name}</h3>
+                  <h3 class="font-bold text-lg sm:text-xl text-white">
+                    {item.name}
+                  </h3>
                 </div>
               </div>
             </div>
@@ -201,6 +203,19 @@ const testimonials = [
 
   // Initial update
   updateSlide();
+
+  // Intersection Observer for animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("animate-fade-in-up");
+      }
+    });
+  });
+
+  document.querySelectorAll(".testimonial-item").forEach((item) => {
+    observer.observe(item);
+  });
 </script>
 
 <style>
@@ -230,6 +245,20 @@ const testimonials = [
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
+  }
+
+  /* Animation styles */
+  .testimonial-item {
+    opacity: 0;
+    transform: translateY(10px);
+    transition:
+      opacity 0.6s ease-out,
+      transform 0.6s ease-out;
+  }
+
+  .animate-fade-in-up {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   @media (prefers-reduced-motion: reduce) {

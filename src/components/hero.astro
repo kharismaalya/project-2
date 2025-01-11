@@ -1,30 +1,30 @@
 ---
 import { Picture } from "astro:assets";
-import heroImage from "assets/cobalagi.png";
+import heroImage from "assets/hero2.png";
 import Link from "@components/ui/link.astro";
 ---
 
 <main class="bg-textJudul text-white">
   <div
-    class="grid lg:grid-cols-2 place-items-center pt-8 pb-4 md:pt-4 md:pb-12 max-w-6xl mx-auto px-3">
+    class="grid lg:grid-cols-2 place-items-center pt-8 md:pt-0 max-w-7xl mx-auto px-3">
     <div class="w-full md:order-1">
       <Picture
         src={heroImage}
         alt="orang"
-        widths={[1000, 1400, 1800]}
-        sizes="(max-width: 2000px) 100vw, 2000px"
+        widths={[1400, 1800, 2200]}
+        sizes="(max-width: 2200px) 100vw, 2200px"
         loading="eager"
         format="avif"
-        class="hidden md:block lg:block w-full h-auto object-cover md:scale-95"
+        class="hidden md:block lg:block w-full h-auto object-cover md:scale-100"
       />
       <Picture
         src={heroImage}
         alt="orang"
-        widths={[300, 400, 500]}
-        sizes="(max-width: 600px) 100vw, 600px"
+        widths={[500, 600, 700]}
+        sizes="(max-width: 700px) 100vw, 700px"
         loading="eager"
         format="avif"
-        class="block md:hidden lg:hidden w-full h-auto object-cover mb-6 scale-95"
+        class="block md:hidden lg:hidden w-full h-auto object-cover mb-6 scale-100"
       />
     </div>
 

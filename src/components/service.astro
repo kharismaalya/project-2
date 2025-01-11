@@ -1,0 +1,76 @@
+---
+import { Picture } from "astro:assets";
+import heroImage from "assets/service/service1.png";
+import Link from "@components/ui/link.astro";
+---
+
+<main class="min-h-screen py-12">
+  <div
+    class="grid lg:grid-cols-2 place-items-center pt-8 md:pt-4 max-w-6xl mx-auto px-3 h-full gap-8 md:gap-16">
+    <!-- Increased gap to 16 for more spacing -->
+    <!-- picture -->
+    <div class="w-full">
+      <Picture
+        src={heroImage}
+        alt="orang"
+        widths={[1400, 1800, 2200]}
+        sizes="(max-width: 2200px) 100vw, 2200px"
+        loading="eager"
+        format="avif"
+        class="hidden md:block lg:block w-full h-auto object-cover md:scale-100"
+      />
+      <Picture
+        src={heroImage}
+        alt="orang"
+        widths={[500, 600, 700]}
+        sizes="(max-width: 700px) 100vw, 700px"
+        loading="eager"
+        format="avif"
+        class="block md:hidden lg:hidden w-full h-auto object-cover mb-6 scale-100"
+      />
+    </div>
+
+    <div class="text-left space-y-6 w-full">
+      <div>
+        <h1
+          class="text-3xl sm:text-4xl md:text-5xl lg:text-4xl font-bold tracking-wide mt-4">
+          Service
+        </h1>
+      </div>
+      <p class="text-lg mt-4 max-w-xl">
+        "Connected Business, Smart Solution. CLEON by JDN - Your Digital
+        Partner. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+        Lorem ipsum. " Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+        Modi atque necessitatibus tempora praesentium laborum illo numquam
+        dolore eligendi vel hic aliquid quibusdam consequuntur minima corporis
+        quos eum, earum nihil! Sequi. Lorem ipsum dolor sit amet consectetur
+        adipisicing elit. Vitae sed nobis explicabo quasi laborum aut quidem
+        quas, a nam provident, illo impedit rerum excepturi deserunt saepe
+        itaque nihil veniam. Tempore.lorem Lorem ipsum dolor sit amet
+        consectetur adipisicing elit.
+      </p>
+      <div class="mt-6 flex flex-col sm:flex-row gap-3 justify-start">
+        <Link
+          style="muted"
+          href="/"
+          target="_self"
+          class="flex gap-1 bg-textJudul text-white items-center justify-center transition-transform duration-300 transform hover:bg-textJudul hover:scale-105 hover:shadow-lg"
+          rel="noopener">
+          <!-- <svg
+        class="w-6 h-6"
+        fill="FFFFFF"
+        viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"
+          fill="#FFFFFF"></path>
+        <path
+          d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"
+          fill="#FFFFFF"></path>
+          </svg> -->
+          Link ke Cleon
+        </Link>
+      </div>
+    </div>
+  </div>
+</main>
