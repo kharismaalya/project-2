@@ -6,7 +6,7 @@ import Link from "@components/ui/link.astro";
 
 <main class="bg-textJudul text-white">
   <div
-    class="grid lg:grid-cols-2 place-items-center pt-8 md:pt-0 max-w-7xl mx-auto px-3">
+    class="grid lg:grid-cols-2 place-items-center pt-8 md:pt-0 max-w-7xl mx-auto px-3 animate-fade-in">
     <div class="w-full md:order-1">
       <Picture
         src={heroImage}
@@ -39,17 +39,18 @@ import Link from "@components/ui/link.astro";
           PT. JARING DATA NUSANTARA
         </h1>
       </div>
-      <p class="text-lg mt-4 max-w-xl mx-auto md:mx-0">
+      <p class="text-lg mt-4 max-w-l mx-auto md:mx-0 typing-animation">
         "Connected Business, Smart Solution. CLEON by JDN - Your Digital
         Partner."
       </p>
+
       <div
         class="mt-6 flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
         <Link
           style="muted"
           href="/contact"
           target="_self"
-          class="flex gap-1 text-textJudul items-center justify-center"
+          class="flex gap-1 text-textJudul items-center justify-center hover:scale-105 transition-transform duration-300"
           rel="noopener">
           <svg
             class="w-6 h-6"
@@ -69,3 +70,57 @@ import Link from "@components/ui/link.astro";
     </div>
   </div>
 </main>
+
+<style>
+  .typing-animation {
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 0.15em solid orange;
+    font-size: 1.125rem;
+    animation:
+      typing 5s steps(80, end),
+      blink-caret 0.75s step-end infinite;
+  }
+
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+
+  @keyframes blink-caret {
+    from,
+    to {
+      border-color: transparent;
+    }
+    50% {
+      border-color: orange;
+    }
+  }
+
+  .animate-fade-in {
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+  }
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+
+  .hover\:scale-105:hover {
+    transform: scale(1.05);
+  }
+
+  .transition-transform {
+    transition: transform 0.3s;
+  }
+
+  .duration-300 {
+    transition-duration: 300ms;
+  }
+</style>
