@@ -1,67 +1,57 @@
 ---
-// @ts-ignore
 import { Icon } from "astro-icon/components";
 
 const features = [
   {
-    title: "Bring Your Own Framework",
-    description:
-      "Build your site using React, Svelte, Vue, Preact, web components, or just plain ol' HTML + JavaScript.",
-    icon: "bx:bxs-briefcase",
+    title: "Stabil",
+    description: "Cleon memiliki kecepatan internet yang tinggi dan stabil karena menggunakan jaringan Fiber.",
+    icon: "bx:bxs-map-pin",
   },
   {
-    title: "100% Static HTML, No JS",
-    description:
-      "Astro renders your entire page to static HTML, removing all JavaScript from your final build by default.",
-    icon: "bx:bxs-window-alt",
+    title: "Terjangkau",
+    description: "Nikmati koneksi Cleon yang stabil dan berkualitas dengan harga yang ramah di kantong.",
+    icon: "bx:bxs-wallet-alt",
   },
   {
-    title: "On-Demand Components",
-    description:
-      "Need some JS? Astro can automatically hydrate interactive components when they become visible on the page.  ",
-    icon: "bx:bxs-data",
+    title: "Tak Terbatas",
+    description: "Cleon saat ini mempunyai coverage area yang paling luas jangkauannya.",
+    icon: "bx:bxs-badge-check",
   },
   {
-    title: "Broad Integration",
-    description:
-      "Astro supports TypeScript, Scoped CSS, CSS Modules, Sass, Tailwind, Markdown, MDX, and any other npm packages.",
-    icon: "bx:bxs-bot",
+    title: "Solutif",
+    description: "Cleon memiliki kecepatan internet yang tinggi dan stabil karena menggunakan jaringan Fiber.",
+    icon: "bx:bxs-map-pin",
   },
   {
-    title: "SEO Enabled",
-    description:
-      "Automatic sitemaps, RSS feeds, pagination and collections take the pain out of SEO and syndication. It just works!",
-    icon: "bx:bxs-file-find",
-  },
-  {
-    title: "Community",
-    description:
-      "Astro is an open source project powered by hundreds of contributors making thousands of individual contributions.",
-    icon: "bx:bxs-user",
+    title: "Responsif",
+    description: "Cleon memiliki kecepatan internet yang tinggi dan stabil karena menggunakan jaringan Fiber.",
+    icon: "bx:bxs-map-pin",
   },
 ];
 ---
 
 <div class="mt-16 md:mt-14 max-w-screen-xl mx-auto px-5">
-  <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
-    Everything you need to start a website
+  <h2 class="text-2xl lg:text-3xl font-bold lg:tracking-tight text-center">
+    Kenapa Memilih
   </h2>
-  <p class="text-lg mt-4 text-slate-600">
-    Astro comes batteries included. It takes the best parts of state-of-the-art
-    tools and adds its own innovations.
+  <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight text-center">
+    JARING DATA NUSANTARA?
+  </h2>
+  <p class="text-lg mt-4 text-slate-600 text-center max-w-3xl mx-auto">
+    Dengan pesatnya perkembangan teknologi mempengaruhi berbagai aspek kehidupan kita yang semakin bergantung pada Internet. 
+    Kualitas dan kecepatan yang terus bertambah menjadi kebutuhan baik di rumah, kantor, dan banyak tempat lainnya membuat kami memberikan layanan terbaik untuk anda.
   </p>
 </div>
 
-<div
-  class="grid sm:grid-cols-2 md:grid-cols-3 mt-16 gap-16 max-w-screen-xl mx-auto px-5 pb-10">
+<div class="grid sm:grid-cols-2 md:grid-cols-3 mt-16 gap-16 max-w-screen-xl mx-auto px-5 pb-10">
   {
     features.map((item) => (
-      <div class="flex gap-4 items-start">
-        <div class="mt-1 bg-black rounded-full  p-2 w-8 h-8 shrink-0">
-          <Icon class="text-white" name={item.icon} />
+      <div class="flex flex-col items-center text-center">
+        <div class="mt-1 p-2 w-12 h-12 shrink-0">
+          <Icon class="text-cyan-400" name={item.icon} size={48} />
         </div>
         <div>
-          <h3 class="font-semibold text-lg">{item.title}</h3>{" "}
+          <h3 class="font-semibold text-xl mt-4">{item.title}</h3>
           <p class="text-slate-500 mt-2 leading-relaxed">{item.description}</p>
         </div>
       </div>

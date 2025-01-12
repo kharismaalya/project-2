@@ -3,6 +3,8 @@ import Container from "@components/container.astro";
 import Link from "@components/ui/link.astro";
 import Dropdown from "./dropdown.astro";
 import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
+import Logo from "assets/logojdn0.png";
+import { Image } from "astro:assets";
 
 const menuitems = [
   {
@@ -44,11 +46,9 @@ const currentPath = Astro.url.pathname;
       class="flex flex-col lg:flex-row justify-between items-center my-5 max-w-screen-xl mx-auto px-5">
       <Astronav>
         <div class="flex w-full lg:w-auto items-center justify-between">
-          <a href="/" class="text-lg">
-            <span class="font-bold" style="color: #3D5A80;">JDN</span><span
-              class="text-slate-500">usantara</span
-            >
-          </a>
+          <div class="w-36 h-11">
+            <a href="/"> <Image src={Logo} alt="Logo JDN" class="object-contain" /></a>
+          </div>
           <div class="block lg:hidden">
             <MenuIcon class="w-4 h-4 text-gray-800" />
           </div>
