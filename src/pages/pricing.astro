@@ -14,44 +14,62 @@ const publishedTeamMembers = await getCollection("team", ({ data }) => {
 <Layout title="About">
   <Container>
     <Sectionhead>
-      <Fragment slot="title">Tentang Kami</Fragment>
-      <Fragment slot="desc">We are a small passionate team.</Fragment>
+      <Fragment slot="title">Destination For Relief & Wellness</Fragment>
+      <Fragment slot="desc">Professional Healthcare Services</Fragment>
     </Sectionhead>
 
-    <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-16">
-      <h2 class="font-bold text-3xl text-gray-800">
-        Empowering the world with Astro.
-      </h2>
-      <p class="text-lg leading-relaxed text-slate-500">
-        We're a multi-cultural team from around the world! We come from diverse
-        backgrounds, bringing different personalities, experiences and skills to
-        the job. This is what makes our team so special.
-      </p>
-    </div>
-    <div class="grid md:grid-cols-3 gap-10 mx-auto max-w-4xl mt-12">
-      {
-        publishedTeamMembers.map((teamMemberEntry) => (
-          <div class="group">
-            <div class="w-full aspect-square">
-              <Picture
-                src={teamMemberEntry.data.avatar.src}
-                alt={teamMemberEntry.data.avatar.alt}
-                sizes="(max-width: 800px) 100vw, 400px"
-                width={400}
-                height={400}
-                class="w-full rounded-md rounded transition group-hover:-translate-y-1 group-hover:shadow-xl bg-white object-cover object-center aspect-square"
-              />
-            </div>
+    <h2 class="text-center text-3xl font-bold my-8">
+      SUB BAB dari Tentang kami
+    </h2>
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mx-auto max-w-6xl my-16">
+      <!-- Left Content -->
+      <div
+        class="flex flex-col justify-start items-center text-center lg:items-end lg:text-right order-3 lg:order-1">
+        <div class="space-y-6">
+          <h4 class="font-bold text-gray-800">Your Health, Our Priority</h4>
+          <p class="text-lg leading-relaxed text-slate-600">
+            We are dedicated to providing exceptional healthcare services with a
+            focus on patient comfort and well-being. Our experienced team of
+            professionals ensures the highest quality of care in a welcoming
+            environment. Lorem ipsum, dolor sit amet consectetur adipisicing
+            elit. Explicabo suscipit iste ipsa nemo unde quas atque commodi modi
+            quia adipisci dolore voluptate, odit esse veniam temporibus enim
+            corrupti ducimus error. Lorem, ipsum dolor sit amet consectetur
+            adipisicing elit. Dolor, voluptatibus. Quos suscipit at cupiditate
+            fugiat, maiores molestias cum ipsa eaque perferendis quas sequi
+            veniam ut quasi id voluptates voluptatibus debitis.
+          </p>
+        </div>
+      </div>
 
-            <div class="mt-4 text-center">
-              <h2 class="text-lg text-gray-800">{teamMemberEntry.data.name}</h2>
-              <h3 class="text-sm text-slate-500">
-                {teamMemberEntry.data.title}
-              </h3>
-            </div>
-          </div>
-        ))
-      }
+      <!-- Center Image -->
+      <div class="relative px-7 order-1 lg:order-2">
+        <div class="aspect-[3/4] overflow-hidden rounded-[40px]">
+          <Picture
+            src={publishedTeamMembers[0]?.data.avatar.src ||
+              "/placeholder-doctor.jpg"}
+            alt="Healthcare Professional"
+            sizes="(max-width: 800px) 100vw, 400px"
+            width={400}
+            height={533}
+            class="w-full h-full object-cover"
+          />
+        </div>
+      </div>
+
+      <!-- Right Content -->
+      <div
+        class="flex flex-col justify-start items-center text-center lg:items-start lg:text-left order-2 lg:order-3">
+        <div class="space-y-6">
+          <h4 class="font-bold text-gray-800">Your Health, Our Priority</h4>
+          <p class="text-lg leading-relaxed text-slate-600">
+            We are dedicated to providing exceptional healthcare services with a
+            focus on patient comfort and well-being. Our experienced team of
+            professionals ensures the highest quality of care in a welcoming
+            environment.
+          </p>
+        </div>
+      </div>
     </div>
   </Container>
 </Layout>
