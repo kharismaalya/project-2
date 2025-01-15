@@ -9,24 +9,28 @@ const services = [
     description:
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum sit tempore voluptates dignissimos rerum facilis quod ipsa delectus, fuga accusantium doloribus ut obcaecati eveniet earum nesciunt quas recusandae ex placeat. We help you create comprehensive business plans tailored to your specific needs and goals. lorem ipsum dolor sit amet.",
     image: "/../src/assets/cobalagi.png",
+    link: "/wifi" // Ensure this path is correct
   },
   {
     title: "CCTV",
     description:
       "Expert financial analysis to help you make informed decisions and optimize your business performance. Lorem ipsum dolor sit amet. Expert financial analysis to help you make informed decisions and optimize your business performance. Lorem ipsum dolor sit amet.",
     image: "/../src/assets/hero-alt.png",
+    link: "/services/cctv"
   },
   {
     title: "Wifi Coin Cleon",
     description:
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum sit tempore voluptates dignissimos rerum facilis quod ipsa delectus, fuga accusantium doloribus ut obcaecati eveniet earum nesciunt quas recusandae ex placeat.",
     image: "/../src/assets/hero-alt.png",
+    link: "/services/wifi-coin-cleon"
   },
   {
     title: "Konsultan Jaringan Sekolah",
     description:
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum sit tempore voluptates dignissimos rerum facilis quod ipsa delectus, fuga accusantium doloribus ut obcaecati eveniet earum nesciunt quas recusandae ex placeat. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde ex eum aliquam, fugit magnam iusto, obcaecati veniam nam eveniet illum harum perspiciatis nisi ullam et eaque quas nesciunt, temporibus ut.",
     image: "/../src/assets/hero-alt.png",
+    link: "/services/konsultan-jaringan-sekolah"
   },
 ];
 ---
@@ -44,7 +48,7 @@ const services = [
         class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
         {
           services.map((service) => (
-            <div class="group relative flex flex-col h-full">
+            <a href={service.link} class="group relative flex flex-col h-full border p-4 rounded-lg">
               <div class="service-card flex flex-col items-center p-6 bg-white rounded-lg h-full">
                 <div class="w-24 h-24 mb-6 transition-transform duration-300 group-hover:scale-110">
                   <img
@@ -61,7 +65,7 @@ const services = [
                   {service.description}
                 </p>
               </div>
-            </div>
+            </a>
           ))
         }
       </div>
@@ -75,6 +79,14 @@ const services = [
     transition: all 0.3s ease-in-out;
     border: 1px solid transparent;
     -webkit-tap-highlight-color: transparent;
+    height: 100%; /* Ensure the card takes full height */
+  }
+
+  /* Ensure all cards have the same height */
+  .service-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   /* Hover styles that work across all devices */
