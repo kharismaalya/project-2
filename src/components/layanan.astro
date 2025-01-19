@@ -1,0 +1,137 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+
+const services = [
+  {
+    title: "WI-FI",
+    description:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum sit tempore voluptates dignissimos rerum facilis quod ipsa delectus, fuga accusantium doloribus ut obcaecati eveniet earum nesciunt quas recusandae ex placeat. We help you create comprehensive business plans tailored to your specific needs and goals. lorem ipsum dolor sit amet.",
+    image: "/cobalagi.png",
+  },
+  {
+    title: "CCTV",
+    description:
+      "Expert financial analysis to help you make informed decisions and optimize your business performance. Lorem ipsum dolor sit amet. Expert financial analysis to help you make informed decisions and optimize your business performance. Lorem ipsum dolor sit amet.",
+    image: "/hero-alt.png",
+  },
+  {
+    title: "Wifi Coin Cleon",
+    description:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum sit tempore voluptates dignissimos rerum facilis quod ipsa delectus, fuga accusantium doloribus ut obcaecati eveniet earum nesciunt quas recusandae ex placeat.",
+    image: "/hero-alt.png",
+  },
+  {
+    title: "Konsultan Jaringan Sekolah",
+    description:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum sit tempore voluptates dignissimos rerum facilis quod ipsa delectus, fuga accusantium doloribus ut obcaecati eveniet earum nesciunt quas recusandae ex placeat. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde ex eum aliquam, fugit magnam iusto, obcaecati veniam nam eveniet illum harum perspiciatis nisi ullam et eaque quas nesciunt, temporibus ut.",
+    image: "/hero-alt.png",
+  },
+];
+---
+
+<Layout title="Services">
+  <Container>
+    <!-- <Sectionhead>
+      <Fragment slot="title">Layanan</Fragment>
+      <Fragment slot="desc">
+        Discover our comprehensive range of business services.
+      </Fragment>
+    </Sectionhead> -->
+    <main class="my-16 px-4 md:px-8 lg:px-16">
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+        {
+          services.map((service) => (
+            <div class="group relative flex flex-col h-full">
+              <div class="service-card flex flex-col items-center p-6 bg-white rounded-lg h-full">
+                <div class="w-24 h-24 mb-6 transition-transform duration-300 group-hover:scale-110">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    class="w-full h-full object-contain"
+                    loading="lazy"
+                  />
+                </div>
+                <h2 class="text-xl font-semibold text-center mb-3 transition-colors duration-300 group-hover:text-[#339cd1]">
+                  {service.title}
+                </h2>
+                <p class="text-gray-600 text-center text-sm transition-colors duration-300 group-hover:text-gray-800">
+                  {service.description}
+                </p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </main>
+  </Container>
+
+  <style>
+    /* Base styles for the service card */
+    .service-card {
+      transition: all 0.3s ease-in-out;
+      border: 1px solid transparent;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Hover styles that work across all devices */
+    @media (hover: hover) {
+      .service-card:hover {
+        transform: scale(1.05);
+        border-color: #e5e7eb;
+        box-shadow:
+          0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+    }
+
+    /* Enable hover effects on touch devices */
+    @media (hover: none) {
+      .service-card {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        user-select: none;
+      }
+
+      /* Use touch-action to enable hover-like behavior on touch */
+      .service-card {
+        touch-action: manipulation;
+      }
+
+      .service-card:hover {
+        transform: scale(1.05);
+        border-color: #e5e7eb;
+        box-shadow:
+          0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+    }
+  </style>
+
+  <script>
+    // Add touch support for hover effects
+    document.addEventListener("DOMContentLoaded", () => {
+      const cards = document.querySelectorAll(".service-card");
+
+      cards.forEach((card) => {
+        card.addEventListener(
+          "touchstart",
+          () => {
+            card.classList.add("hover");
+          },
+          { passive: true }
+        );
+
+        card.addEventListener(
+          "touchend",
+          () => {
+            card.classList.remove("hover");
+          },
+          { passive: true }
+        );
+      });
+    });
+  </script>
+</Layout>

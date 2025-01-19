@@ -8,30 +8,16 @@ import { Image } from "astro:assets";
 
 const menuitems = [
   {
-    title: "Home",
-    path: "#",
-    children: [
-      { title: "Action", path: "/" },
-      { title: "Another action", path: "#" },
-      { title: "Dropdown Submenu", path: "#" },
-      { title: "404 Page", path: "/404" },
-    ],
-  },
-  {
     title: "Tentang Kami",
-    path: "/pricing",
+    path: "/tentang-kami",
   },
-  // {
-  //   title: "Service",
-  //   path: "/about",
-  // },
   {
     title: "Layanan",
-    path: "/blog",
+    path: "/layanan",
   },
   {
     title: "Hubungi",
-    path: "/contact",
+    path: "/hubungi-kami",
   },
 ];
 
@@ -59,21 +45,17 @@ const currentPath = Astro.url.pathname;
           <ul class="flex flex-col lg:flex-row lg:gap-3">
             {
               menuitems.map((item) => (
-                <>
-                  {!item.children && (
-                    <li>
-                      <a
-                        href={item.path}
-                        class={`flex lg:px-3 py-2 items-center hover:text-gray-900 ${
-                          currentPath === item.path
-                            ? "font-bold text-gray-900"
-                            : "text-gray-600"
-                        }`}>
-                        <span>{item.title}</span>
-                      </a>
-                    </li>
-                  )}
-                </>
+                <li>
+                  <a
+                    href={item.path}
+                    class={`flex lg:px-3 py-2 items-center hover:text-gray-900 ${
+                      currentPath === item.path
+                        ? "font-bold text-gray-900"
+                        : "text-gray-600"
+                    }`}>
+                    <span>{item.title}</span>
+                  </a>
+                </li>
               ))
             }
           </ul>

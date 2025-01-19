@@ -17,6 +17,7 @@ module.exports = {
         grey1: "#DEE2E6",
         white: "#fff",
         dark: "#000000",
+        blueJDN: "#339cd1",
         primaryColor: "rgb(99, 102, 241)",
         secondaryColor: "rgb(161, 163, 247)",
         primaryText: "rgb(255,255,255)",
