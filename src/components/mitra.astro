@@ -1,0 +1,140 @@
+---
+
+---
+
+<style>
+  .mitra-slider {
+    display: flex;
+    animation: slideRight 20s linear infinite;
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 0.5s ease-out,
+      transform 0.5s ease-out;
+  }
+
+  .mitra-slider.paused {
+    animation-play-state: paused;
+  }
+
+  .mitra-slider.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @keyframes slideRight {
+    0% {
+      transform: translateX(-50%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+</style>
+
+<div class="bg-textJudul text-white py-6 overflow-hidden">
+  <div class="mt-0 max-w-screen-xl mx-auto py-2">
+    <h2
+      class="text-2xl lg:text-3xl text-center font-bold lg:tracking-tight pb-7">
+      Mitra
+    </h2>
+    <div class="relative w-full">
+      <div class="mitra-slider-wrapper overflow-hidden">
+        <div class="mitra-slider flex items-center justify-start">
+          <!-- Image List -->
+          <div class="flex gap-8 md:gap-20">
+            {
+              [...Array(2)].map(() => (
+                <>
+                  <img
+                    src="/mitra/favehotel.png"
+                    alt="Fave Hotel"
+                    class="size-16 md:size-20 flex-shrink-0 object-contain"
+                  />
+                  <img
+                    src="/mitra/grandkangen.png"
+                    alt="Grand Kangen"
+                    class="size-16 md:size-20 flex-shrink-0 object-contain"
+                  />
+                  <img
+                    src="/mitra/grandkangen2.png"
+                    alt="Grand Kangen"
+                    class="size-16 md:size-20 flex-shrink-0 object-contain"
+                  />
+                  <img
+                    src="/mitra/jogja.png"
+                    alt="Jogja"
+                    class="size-16 md:size-20 flex-shrink-0 object-contain"
+                  />
+                  <img
+                    src="/mitra/noola.png"
+                    alt="Noola"
+                    class="size-16 md:size-20 flex-shrink-0 object-contain"
+                  />
+                  <img
+                    src="/mitra/respira.png"
+                    alt="Respira"
+                    class="size-16 md:size-20 flex-shrink-0 object-contain"
+                  />
+                  <img
+                    src="/mitra/upnvy.png"
+                    alt="UPN VY"
+                    class="size-16 md:size-20 flex-shrink-0 object-contain"
+                  />
+                  <img
+                    src="/mitra/walioboro.png"
+                    alt="Walioboro"
+                    class="size-16 md:size-20 flex-shrink-0 object-contain"
+                  />
+                  <img
+                    src="/mitra/westlake.png"
+                    alt="Westlake"
+                    class="size-16 md:size-20 flex-shrink-0 object-contain"
+                  />
+                </>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  import { onMount } from "solid-js";
+
+  onMount(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate");
+          } else {
+            entry.target.classList.remove("animate");
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    document.querySelectorAll(".mitra-slider").forEach((element) => {
+      observer.observe(element);
+    });
+
+    document.querySelectorAll(".mitra-slider img").forEach((img) => {
+      img.addEventListener("mouseenter", () => {
+        const slider = document.querySelector(".mitra-slider");
+        if (slider) {
+          slider.classList.add("paused");
+        }
+      });
+      img.addEventListener("mouseleave", () => {
+        const slider = document.querySelector(".mitra-slider");
+        if (slider) {
+          slider.classList.remove("paused");
+        }
+      });
+    });
+  });
+</script>
