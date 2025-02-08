@@ -2,42 +2,27 @@
 
 ---
 
-<style>
-  .mitra-slider {
-    display: flex;
-    animation: slideRight 20s linear infinite;
-    opacity: 0;
-    transform: translateY(20px);
-    transition:
-      opacity 0.5s ease-out,
-      transform 0.5s ease-out;
-  }
-
-  .mitra-slider.paused {
-    animation-play-state: paused;
-  }
-
-  .mitra-slider.animate {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  @keyframes slideRight {
-    0% {
-      transform: translateX(-50%);
-    }
-    100% {
-      transform: translateX(0);
-    }
-  }
-</style>
-
 <div class="bg-textJudul text-white py-6 overflow-hidden">
   <div class="mt-0 max-w-screen-xl mx-auto py-2">
-    <h2
+    <!-- <h2
       class="text-2xl lg:text-3xl text-center font-bold lg:tracking-tight pb-7">
       Mitra
-    </h2>
+    </h2> -->
+    <div
+      class="project-header relative z-10 mx-auto max-w-screen-xl px-5 sm:px-12 md:px-16 lg:px-12 xl:px-4 text-center">
+      <h2
+        id="title-highlighed-projects"
+        class="relative inline text-2xl lg:text-3xl font-bold tracking-tight text-cyan-dark">
+        <span class="relative mt-2 inline-block sm:mt-0">
+          <span class="relative z-[1]">Mitra</span>
+          <span
+            id="title-highlight-project"
+            style={{ width: 0 }}
+            class="title-highlight absolute left-0 -bottom-1 z-0 hidden h-[15px] w-[250px] max-[350px]:w-[220px] min-[375px]:block sm:bottom-2 sm:w-[320px] md:bottom-1 lg:h-[20px] lg:w-[600px]">
+          </span>
+        </span>
+      </h2>
+    </div>
     <div class="relative w-full">
       <div class="mitra-slider-wrapper overflow-hidden">
         <div class="mitra-slider flex items-center justify-start">
@@ -103,6 +88,9 @@
 
 <script>
   import { onMount } from "solid-js";
+  import { animate, inView } from "motion";
+
+  const defaultEasing = [0.17, 0.55, 0.55, 1];
 
   onMount(() => {
     const observer = new IntersectionObserver(
@@ -136,5 +124,101 @@
         }
       });
     });
+
+    inView("#title-highlighed-projects", () => {
+      animate(
+        "#title-highlight-project",
+        { opacity: 1, width: "100%" },
+        { delay: 0.3 }
+      );
+      animate(
+        "#title-highlighed-projects-rocket",
+        { opacity: 1, transform: "translate(0, 0)" },
+        { duration: 0.8, delay: 0.5 }
+      );
+      animate("#mesh-project-section-top", { opacity: 1 }, { delay: 0.5 });
+      animate("#mesh-project-section-bottom", { opacity: 1 }, { delay: 0.5 });
+    });
   });
 </script>
+
+<style>
+  .mitra-slider {
+    display: flex;
+    animation: slideRight 20s linear infinite;
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 0.5s ease-out,
+      transform 0.5s ease-out;
+  }
+
+  .mitra-slider.paused {
+    animation-play-state: paused;
+  }
+
+  .mitra-slider.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @keyframes slideRight {
+    0% {
+      transform: translateX(-50%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  .title-highlight {
+    background: radial-gradient(
+        75.3% 65106.57% at 1.06% -86.9%,
+        rgba(12, 80, 105, 0.2) 0%,
+        rgba(12, 74, 110, 0) 100%
+      ),
+      linear-gradient(89.96deg, #91dafc -0.07%, rgba(145, 218, 252, 0) 113.39%);
+    transform: rotate(-1.13deg);
+    height: 10px; /* Reduced height */
+  }
+
+  @media (max-width: 640px) {
+    .title-highlight {
+      background: radial-gradient(
+          75.3% 65106.57% at 1.06% -86.9%,
+          rgba(12, 80, 105, 0.2) 0%,
+          rgba(12, 74, 110, 0) 100%
+        ),
+        linear-gradient(
+          89.96deg,
+          #beebff -0.07%,
+          rgba(145, 218, 252, 0) 113.39%
+        );
+      transform: rotate(-1.13deg);
+      height: 10px; /* Reduced height */
+    }
+  }
+
+  @media (max-width: 640px) {
+    .project-header::before {
+      content: "";
+      position: absolute;
+      top: -300px;
+      left: 0;
+      width: 100%;
+      height: 450%;
+      opacity: 40%;
+      background: radial-gradient(
+          78.47% 16.24% at 0% 39.21%,
+          rgba(221, 214, 254, 0.44) 0%,
+          rgba(217, 217, 217, 0) 100%
+        ),
+        radial-gradient(
+          77.5% 23.35% at -3.06% 47.79%,
+          rgba(14, 165, 233, 0.294) 0%,
+          rgba(217, 217, 217, 0) 100%
+        );
+      z-index: -1;
+    }
+  }
+</style>

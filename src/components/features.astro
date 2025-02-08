@@ -4,33 +4,36 @@ import { Icon } from "astro-icon/components";
 const features = [
   {
     title: "Stabil",
-    description: "Cleon memastikan koneksi internet yang handal dan stabil sepanjang waktu dengan dukungan teknologi fiber optik tercanggih.",
+    description:
+      "Cleon memastikan koneksi internet yang handal dan stabil sepanjang waktu dengan dukungan teknologi fiber optik tercanggih.",
     icon: "bx:bxs-shield", // Updated icon
   },
   {
     title: "Terjangkau",
-    description: "Cleon menawarkan berbagai pilihan paket yang fleksibel, dirancang untuk menyesuaikan kebutuhan dan anggaran Anda.",
+    description:
+      "Cleon menawarkan berbagai pilihan paket yang fleksibel, dirancang untuk menyesuaikan kebutuhan dan anggaran Anda.",
     icon: "bx:bxs-dollar-circle", // Updated icon
   },
   {
     title: "Tak Terbatas",
-    description: "Dengan kuota tanpa batas dan jaringan yang mencakup wilayah luas, Cleon memungkinkan Anda menikmati internet tanpa gangguan.",
+    description:
+      "Dengan kuota tanpa batas dan jaringan yang mencakup wilayah luas, Cleon memungkinkan Anda menikmati internet tanpa gangguan.",
     icon: "bx:infinite", // Updated icon
   },
 ];
 
-const bottomFeatures = [
-  {
-    title: "Solutif",
-    description: "Dilengkapi dengan dukungan teknisi profesional, Cleon siap memberikan solusi terbaik untuk setiap kebutuhan teknis Anda.",
-    icon: "bx:bxs-bulb", // Diubah ke ikon solusi/ide
-  },
-  {
-    title: "Responsif",
-    description: "Layanan pelanggan Cleon tersedia 24 jam melalui berbagai platform untuk memastikan kenyamanan Anda setiap saat.",
-    icon: "bx:bxs-phone-call", // Diubah ke ikon responsif/komunikasi
-  },
-];
+// const bottomFeatures = [
+//   {
+//     title: "Solutif",
+//     description: "Dilengkapi dengan dukungan teknisi profesional, Cleon siap memberikan solusi terbaik untuk setiap kebutuhan teknis Anda.",
+//     icon: "bx:bxs-bulb", // Diubah ke ikon solusi/ide
+//   },
+//   {
+//     title: "Responsif",
+//     description: "Layanan pelanggan Cleon tersedia 24 jam melalui berbagai platform untuk memastikan kenyamanan Anda setiap saat.",
+//     icon: "bx:bxs-phone-call", // Diubah ke ikon responsif/komunikasi
+//   },
+// ];
 ---
 
 <div class="mt-8 md:mt-10 max-w-screen-xl mx-auto px-4">
@@ -41,26 +44,32 @@ const bottomFeatures = [
     JARING DATA NUSANTARA?
   </h2>
   <p class="text-lg mt-4 text-slate-600 text-center max-w-3xl mx-auto">
-    Jaring Data Nusantara menghadirkan Cleon untuk memenuhi kebutuhan konektivitas di era digital. Berbasis teknologi wireless, Cleon dirancang untuk mendukung area yang belum terjangkau jaringan optik Lifemedia, memastikan koneksi tetap tersedia di mana pun Anda berada. 
-</div>
+    Jaring Data Nusantara menghadirkan Cleon untuk memenuhi kebutuhan
+    konektivitas di era digital. Berbasis teknologi wireless, Cleon dirancang
+    untuk mendukung area yang belum terjangkau jaringan optik Lifemedia,
+    memastikan koneksi tetap tersedia di mana pun Anda berada.
+  </p>
 
-<div class="grid sm:grid-cols-2 md:grid-cols-3 mt-12 gap-12 max-w-screen-xl mx-auto px-4">
-  {
-    features.map((item) => (
-      <div class="flex flex-col items-center text-center">
-        <div class="mt-1 p-2 w-12 h-12 shrink-0">
+  <div
+    class="grid sm:grid-cols-2 md:grid-cols-3 mt-12 gap-12 max-w-screen-xl mx-auto px-4">
+    {
+      features.map((item) => (
+        <div class="flex flex-col items-center text-center">
+          <div class="mt-1 p-2 w-12 h-12 shrink-0">
             <Icon class="text-[#339cd1]" name={item.icon} size={48} />
+          </div>
+          <div>
+            <h3 class="font-semibold text-xl mt-4">{item.title}</h3>
+            <p class="text-slate-500 mt-2 leading-relaxed">
+              {item.description}
+            </p>
+          </div>
         </div>
-        <div>
-          <h3 class="font-semibold text-xl mt-4">{item.title}</h3>
-          <p class="text-slate-500 mt-2 leading-relaxed">{item.description}</p>
-        </div>
-      </div>
-    ))
-  }
-</div>
+      ))
+    }
+  </div>
 
-<div class="grid sm:grid-cols-2 mt-12 gap-12 max-w-screen-lg mx-auto px-4 pb-8">
+  <!-- <div class="grid sm:grid-cols-2 mt-12 gap-12 max-w-screen-lg mx-auto px-4 pb-8">
   {
     bottomFeatures.map((item) => (
       <div class="flex flex-col items-center text-center">
@@ -74,8 +83,13 @@ const bottomFeatures = [
       </div>
     ))
   }
-</div>
+</div> -->
 
-<!-- Wave SVG Separator -->
-<div class="relative">
-  <svg class="absolute top-0 w-full h-32" viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg">
+  <!-- Wave SVG Separator -->
+  <div class="relative">
+    <svg
+      class="absolute top-0 w-full h-32"
+      viewBox="0 0 1440 320"
+      xmlns="http://www.w3.org/2000/svg"></svg>
+  </div>
+</div>
